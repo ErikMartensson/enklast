@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Enklast</title>
+  </head>
+  <body>
+
+    <form>
+      <input type="number" name="amount" min="5" max="10" placeholder="Number of jokes">
+      <select name="type">
+        <option value="">Type</option>
+        <option value="single">Single</option>
+        <option value="twopart">Two part</option>
+      </select>
+      <button type="submit">Get jokes</button>
+    </form>
+
+    <ol>
+      {{#each jokes}}
+        <li>
+          {{type}}: {{{text}}}
+        </li>
+      {{/each}}
+    </ol>
+
+    <table>
+      <tr>
+        <th>Total characters</th>
+        <td>{{stats.totalCharacters}}</td>
+      </tr>
+      <tr>
+        <th>Third letter of last joke occurrence</th>
+        <td>{{stats.thirdLetterLastJokeOccurrence}}</td>
+      </tr>
+      <tr>
+        <th>Most common letter</th>
+        <td><code>{{stats.mostCommonLetter}}</code></td>
+      </tr>
+      <tr>
+        <th>Most dominant joke type</th>
+        <td>{{stats.typePercentage}}</td>
+      </tr>
+    </table>
+  </body>
+</html>
